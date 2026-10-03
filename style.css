@@ -3,6 +3,19 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* Accessible label that is read by screen readers but visually hidden */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 body {
   background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
   color: white;
@@ -91,9 +104,16 @@ form button:hover {
   opacity: 0;
 }
 
-.completed {
+.todo.completed li {
   text-decoration: line-through;
   opacity: 0.5;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .todo,
+  form button {
+    transition: none;
+  }
 }
 
 /*CUSTOM SELECTOR */
